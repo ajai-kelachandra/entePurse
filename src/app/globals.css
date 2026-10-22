@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 238 238 240;
+  --surface: 255 255 255;
+  --subtle: 242 242 245;
+  --line: 232 232 238;
+  --ink: 19 22 38;
+  --muted: 108 114 140;
+  --brand: 155 63 214;
+  --good: 22 163 74;
+  --warn: 217 119 6;
+  --bad: 220 38 38;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: 0 0 0;
+    --surface: 22 22 24;
+    --subtle: 38 38 42;
+    --line: 44 44 50;
+    --ink: 236 238 248;
+    --muted: 140 146 172;
+    --brand: 168 85 247;
+    --good: 74 222 128;
+    --warn: 251 191 36;
+    --bad: 248 113 113;
+  }
+}
+html { font-size: 14.5px; }
+body { @apply bg-bg text-ink antialiased; }
+
+@layer components {
+  .card { @apply rounded-3xl border border-line bg-surface p-5 shadow-card; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition active:scale-[0.98] disabled:opacity-50; }
+  .btn-primary { @apply btn bg-brand text-white hover:opacity-90; }
+  .btn-ghost { @apply btn border border-line bg-surface hover:bg-subtle; }
+  .btn-danger { @apply btn bg-bad/10 text-bad hover:bg-bad/20; }
+  .input { @apply w-full rounded-xl border border-line bg-surface px-3.5 py-2.5 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20; }
+  .label { @apply mb-1.5 block text-xs font-medium text-muted; }
+  .err { @apply mt-1 text-xs text-bad; }
+}
