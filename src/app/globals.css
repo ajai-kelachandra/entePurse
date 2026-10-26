@@ -29,7 +29,8 @@
   }
 }
 html { font-size: 14.5px; }
-body { @apply bg-bg text-ink antialiased; }
+body { @apply bg-bg text-ink antialiased; overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; }
+@media (display-mode: standalone) { body { user-select: none; } input, textarea { user-select: text; } }
 
 @layer components {
   .card { @apply rounded-3xl border border-line bg-surface p-5 shadow-card; }

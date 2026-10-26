@@ -55,7 +55,7 @@ export function Shell({ children }: { children: ReactNode }) {
           <nav className="space-y-1">
             {NAV.map(({ href, label, icon: Icon }) => (
               <Link
-                key={href} href={href}
+                key={href} href={href} replace
                 className={clsx("flex items-center gap-3 rounded-xl px-3 py-2 text-sm", path === href ? "bg-brand/10 font-medium text-brand" : "text-muted hover:bg-subtle")}
               ><Icon className="h-4 w-4" />{label}</Link>
             ))}
@@ -63,7 +63,7 @@ export function Shell({ children }: { children: ReactNode }) {
           <button className="btn-primary mt-auto" onClick={() => setModal({ open: true })}><Plus className="h-4 w-4" />Add transaction</button>
         </aside>
 
-        <main className="min-w-0 flex-1 px-4 pb-28 pt-6 md:px-8 md:pb-10">{children}</main>
+        <main className="min-w-0 flex-1 px-4 pb-28 pt-[max(1.5rem,env(safe-area-inset-top))] md:px-8 md:pb-10">{children}</main>
       </div>
 
       <button
@@ -76,7 +76,7 @@ export function Shell({ children }: { children: ReactNode }) {
           const active = path === href;
           return (
             <Link
-              key={href} href={href} aria-label={label}
+              key={href} href={href} replace aria-label={label}
               className={clsx("flex h-11 items-center justify-center gap-1.5 rounded-full text-sm font-medium", active ? "bg-white px-4 text-black" : "w-11 bg-neutral-800 text-white dark:bg-neutral-700")}
             ><Icon className="h-5 w-5" />{active && label.split(" ")[0]}</Link>
           );

@@ -5,8 +5,13 @@ import "./globals.css";
 import { AuthProvider } from "@/lib/auth";
 import { DataProvider } from "@/lib/data";
 
-export const metadata: Metadata = { title: "Mony — personal money manager", description: "Track salary, EMIs, expenses, budgets and goals." };
-export const viewport: Viewport = { width: "device-width", initialScale: 1 };
+export const metadata: Metadata = {
+  title: "Mony", description: "Track salary, EMIs, expenses, budgets and goals.",
+  applicationName: "Mony",
+  appleWebApp: { capable: true, title: "Mony", statusBarStyle: "black-translucent" },
+  icons: { icon: "/icon-192", apple: "/apple-icon" },
+};
+export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover", themeColor: "#9b3fd6" };
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-poppins" });
 
